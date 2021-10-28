@@ -1,0 +1,71 @@
+@use './variables' as *;
+
+$drag-card-bg: $white;
+$drag-card-bg-hover: $grey-lightest;
+$social-hover-color: $purple;
+
+.drag {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  .items {
+    display: grid;
+    row-gap: 1rem;
+    padding: 2rem;
+    box-shadow: 0px 0px 16px #e1e1e1;
+    border-radius: 0.75rem;
+  }
+  .card,
+  .content {
+    display: flex;
+    align-items: center;
+  }
+  .card {
+    width: 420px;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+    background-color: $drag-card-bg;
+    box-shadow: none;
+    border-radius: 0.75rem;
+    cursor: grab;
+    &:hover {
+      background-color: darken($drag-card-bg, 3%);
+    }
+  }
+  .img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  .name {
+    font-size: $normal-font-size;
+    color: $black;
+    font-weight: 500;
+  }
+  .profession {
+    font-size: $smaller-font-size;
+    color: $grey;
+  }
+  .social {
+    margin: 0 0.375rem;
+    color: $grey-light;
+    transition: 0.4s;
+
+    &:hover {
+      color: $social-hover-color;
+    }
+  }
+  /* Class name for the chosen item */
+  .item-chosen {
+    background-color: $drag-card-bg-hover;
+    cursor: grabbing;
+  }
+}
+
+/* Class name for the dragging item */
+.item-drag {
+  opacity: 0;
+}
